@@ -4,17 +4,8 @@ import lib2
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='grpc ip & port setting')
-
-    parser.add_argument('--ip', required=True, help='write ip')
-    parser.add_argument('--port', required=False, default='8888', help='write port')
-
-    args = parser.parse_args()
-
-
-    ipport = args.ip + ":" + args.port
-    client = lib2.FileClient(ipport)
-
+    parser = argparse.ArgumentParser(description='usage test')
+    client = lib2.FileClient('10.0.7.171:31256')
 
     # demo for file uploading
     in_file_name = './defpedimg.jpg'
