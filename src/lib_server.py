@@ -13,7 +13,6 @@ network = 'pednet'
 overlay = 'box,labels,conf'
 threshold = 0.5
 out_filename = '/tmp/outfile.jpg'
-def_filename = './defpedimg.jpg'
 
 def get_file_chunks(filename):
     with open(filename, 'rb') as f:
