@@ -1,6 +1,6 @@
 import os
 import argparse
-import lib2
+import lib_client
 
 
 if __name__ == '__main__':
@@ -13,7 +13,7 @@ if __name__ == '__main__':
 
 
     ipport = args.ip + ":" + args.port
-    client = lib2.FileClient(ipport)
+    client = lib_client.FileClient(ipport)
 
 
     # demo for file uploading
