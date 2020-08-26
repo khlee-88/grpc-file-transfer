@@ -33,21 +33,6 @@ def save_chunks_to_file(chunks, filename):
         detections = net.Detect(img, width, height, overlay)
         jetson.utils.saveImageRGBA(out_filename, img, width, height)
 
-class FileClient:
-    def __init__(self, address):
-        channel = grpc.insecure_channel(address)
-        self.stub = chunk_pb2_grpc.FileServerStub(channel)
-
-    def upload(self, in_file_name):
-        chunks_generator = get_file_chunks(in_file_name)
-        response = self.stub.upload(chunks_generator)
-        assert response.length == os.path.getsize(in_file_name)
-
-    def download(self, target_name, out_file_name):
-        response = self.stub.download(chunk_pb2.Request(name=target_name))
-        save_chunks_to_file(response, out_file_name)
-
-
 class FileServer(chunk_pb2_grpc.FileServerServicer):
     def __init__(self):
 
