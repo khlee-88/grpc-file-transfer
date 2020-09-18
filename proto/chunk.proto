@@ -3,7 +3,14 @@ syntax = "proto3";
 
 service FileServer {
   rpc upload(stream Chunk) returns (Reply) {}
+  rpc alive(Alive) returns (Alive){}
+  rpc alive_stream(Alive) returns (stream Detection){}
   rpc download(Request) returns (stream Chunk) {}
+  rpc download_detection(Request) returns (Detection) {}
+  rpc get_box(Request) returns (stream Detection) {}
+}
+message Alive{
+  int32 heartbeat = 1;
 }
 
 message Chunk {
@@ -16,4 +23,17 @@ message Request {
 
 message Reply {
   int32 length = 1;
+}
+message Detection{
+  int32 classID = 1;
+  float confidence = 2;
+  float left = 3;
+  float top = 4;
+  float right = 5;
+  float bottom = 6;
+  float width = 7;
+  float height = 8;
+  float area = 9;
+  float center_x = 10;
+  float center_y = 11;
 }

@@ -18,26 +18,28 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=b'\n\x0b\x63hunk.proto\"\x17\n\x05\x43hunk\x12\x0e\n\x06\x62uffer\x18\x01 \x01(\x0c\"\x17\n\x07Request\x12\x0c\n\x04name\x18\x01 \x01(\t\"\x17\n\x05Reply\x12\x0e\n\x06length\x18\x01 \x01(\x05\x32L\n\nFileServer\x12\x1c\n\x06upload\x12\x06.Chunk\x1a\x06.Reply\"\x00(\x01\x12 \n\x08\x64ownload\x12\x08.Request\x1a\x06.Chunk\"\x00\x30\x01\x62\x06proto3'
+  create_key=_descriptor._internal_create_key,
+  serialized_pb=b'\n\x0b\x63hunk.proto\"\x1a\n\x05\x41live\x12\x11\n\theartbeat\x18\x01 \x01(\x05\"\x17\n\x05\x43hunk\x12\x0e\n\x06\x62uffer\x18\x01 \x01(\x0c\"\x17\n\x07Request\x12\x0c\n\x04name\x18\x01 \x01(\t\"\x17\n\x05Reply\x12\x0e\n\x06length\x18\x01 \x01(\x05\"\xbb\x01\n\tDetection\x12\x0f\n\x07\x63lassID\x18\x01 \x01(\x05\x12\x12\n\nconfidence\x18\x02 \x01(\x02\x12\x0c\n\x04left\x18\x03 \x01(\x02\x12\x0b\n\x03top\x18\x04 \x01(\x02\x12\r\n\x05right\x18\x05 \x01(\x02\x12\x0e\n\x06\x62ottom\x18\x06 \x01(\x02\x12\r\n\x05width\x18\x07 \x01(\x02\x12\x0e\n\x06height\x18\x08 \x01(\x02\x12\x0c\n\x04\x61rea\x18\t \x01(\x02\x12\x10\n\x08\x63\x65nter_x\x18\n \x01(\x02\x12\x10\n\x08\x63\x65nter_y\x18\x0b \x01(\x02\x32\xe2\x01\n\nFileServer\x12\x1c\n\x06upload\x12\x06.Chunk\x1a\x06.Reply\"\x00(\x01\x12\x19\n\x05\x61live\x12\x06.Alive\x1a\x06.Alive\"\x00\x12&\n\x0c\x61live_stream\x12\x06.Alive\x1a\n.Detection\"\x00\x30\x01\x12 \n\x08\x64ownload\x12\x08.Request\x1a\x06.Chunk\"\x00\x30\x01\x12,\n\x12\x64ownload_detection\x12\x08.Request\x1a\n.Detection\"\x00\x12#\n\x07get_box\x12\x08.Request\x1a\n.Detection\"\x00\x30\x01\x62\x06proto3'
 )
 
 
 
 
-_CHUNK = _descriptor.Descriptor(
-  name='Chunk',
-  full_name='Chunk',
+_ALIVE = _descriptor.Descriptor(
+  name='Alive',
+  full_name='Alive',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
+  create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='buffer', full_name='Chunk.buffer', index=0,
-      number=1, type=12, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"",
+      name='heartbeat', full_name='Alive.heartbeat', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -51,7 +53,39 @@ _CHUNK = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=15,
-  serialized_end=38,
+  serialized_end=41,
+)
+
+
+_CHUNK = _descriptor.Descriptor(
+  name='Chunk',
+  full_name='Chunk',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='buffer', full_name='Chunk.buffer', index=0,
+      number=1, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=43,
+  serialized_end=66,
 )
 
 
@@ -61,6 +95,7 @@ _REQUEST = _descriptor.Descriptor(
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
+  create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
       name='name', full_name='Request.name', index=0,
@@ -68,7 +103,7 @@ _REQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -81,8 +116,8 @@ _REQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=40,
-  serialized_end=63,
+  serialized_start=68,
+  serialized_end=91,
 )
 
 
@@ -92,6 +127,7 @@ _REPLY = _descriptor.Descriptor(
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
+  create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
       name='length', full_name='Reply.length', index=0,
@@ -99,7 +135,7 @@ _REPLY = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -112,14 +148,125 @@ _REPLY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=65,
-  serialized_end=88,
+  serialized_start=93,
+  serialized_end=116,
 )
 
+
+_DETECTION = _descriptor.Descriptor(
+  name='Detection',
+  full_name='Detection',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='classID', full_name='Detection.classID', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='confidence', full_name='Detection.confidence', index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='left', full_name='Detection.left', index=2,
+      number=3, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='top', full_name='Detection.top', index=3,
+      number=4, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='right', full_name='Detection.right', index=4,
+      number=5, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='bottom', full_name='Detection.bottom', index=5,
+      number=6, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='width', full_name='Detection.width', index=6,
+      number=7, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='height', full_name='Detection.height', index=7,
+      number=8, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='area', full_name='Detection.area', index=8,
+      number=9, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='center_x', full_name='Detection.center_x', index=9,
+      number=10, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='center_y', full_name='Detection.center_y', index=10,
+      number=11, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=119,
+  serialized_end=306,
+)
+
+DESCRIPTOR.message_types_by_name['Alive'] = _ALIVE
 DESCRIPTOR.message_types_by_name['Chunk'] = _CHUNK
 DESCRIPTOR.message_types_by_name['Request'] = _REQUEST
 DESCRIPTOR.message_types_by_name['Reply'] = _REPLY
+DESCRIPTOR.message_types_by_name['Detection'] = _DETECTION
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+Alive = _reflection.GeneratedProtocolMessageType('Alive', (_message.Message,), {
+  'DESCRIPTOR' : _ALIVE,
+  '__module__' : 'chunk_pb2'
+  # @@protoc_insertion_point(class_scope:Alive)
+  })
+_sym_db.RegisterMessage(Alive)
 
 Chunk = _reflection.GeneratedProtocolMessageType('Chunk', (_message.Message,), {
   'DESCRIPTOR' : _CHUNK,
@@ -142,6 +289,13 @@ Reply = _reflection.GeneratedProtocolMessageType('Reply', (_message.Message,), {
   })
 _sym_db.RegisterMessage(Reply)
 
+Detection = _reflection.GeneratedProtocolMessageType('Detection', (_message.Message,), {
+  'DESCRIPTOR' : _DETECTION,
+  '__module__' : 'chunk_pb2'
+  # @@protoc_insertion_point(class_scope:Detection)
+  })
+_sym_db.RegisterMessage(Detection)
+
 
 
 _FILESERVER = _descriptor.ServiceDescriptor(
@@ -150,8 +304,9 @@ _FILESERVER = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=90,
-  serialized_end=166,
+  create_key=_descriptor._internal_create_key,
+  serialized_start=309,
+  serialized_end=535,
   methods=[
   _descriptor.MethodDescriptor(
     name='upload',
@@ -161,15 +316,57 @@ _FILESERVER = _descriptor.ServiceDescriptor(
     input_type=_CHUNK,
     output_type=_REPLY,
     serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='alive',
+    full_name='FileServer.alive',
+    index=1,
+    containing_service=None,
+    input_type=_ALIVE,
+    output_type=_ALIVE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='alive_stream',
+    full_name='FileServer.alive_stream',
+    index=2,
+    containing_service=None,
+    input_type=_ALIVE,
+    output_type=_DETECTION,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='download',
     full_name='FileServer.download',
-    index=1,
+    index=3,
     containing_service=None,
     input_type=_REQUEST,
     output_type=_CHUNK,
     serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='download_detection',
+    full_name='FileServer.download_detection',
+    index=4,
+    containing_service=None,
+    input_type=_REQUEST,
+    output_type=_DETECTION,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='get_box',
+    full_name='FileServer.get_box',
+    index=5,
+    containing_service=None,
+    input_type=_REQUEST,
+    output_type=_DETECTION,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
   ),
 ])
 _sym_db.RegisterServiceDescriptor(_FILESERVER)
